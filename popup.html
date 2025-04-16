@@ -1,15 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text.css" href="./popup.css"></style>
-    <title>Summaryze</title>
+    <title>YouTube Video Search</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 24px;
+            height: 24px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .api-key-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .api-key-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .api-key-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .api-key-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .api-key-link {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .api-key-link:hover {
+            text-decoration: underline;
+        }
+        .button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .save-button {
+            background-color: #1a73e8;
+            color: white;
+        }
+        .save-button:hover {
+            background-color: #1557b0;
+        }
+        .status {
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+        .error {
+            background-color: #fce8e6;
+            color: #c5221f;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <button id="summaryze">Sumaryze</button>
+        <div class="header">
+            <img src="icons/icon48.png" alt="Logo" class="logo">
+            <h1>YouTube Video Search</h1>
+        </div>
+        
+        <div class="api-key-section">
+            <h2>DeepSeek API Key</h2>
+            <p class="api-key-info">
+                To use AI search, enter your DeepSeek API key. Get one from the 
+                <a href="https://platform.deepseek.com" target="_blank" class="api-key-link">DeepSeek Platform</a>
+            </p>
+            <input type="password" id="api-key-input" class="api-key-input" placeholder="Enter your API key">
+            <button id="save-api-key" class="button save-button">Save API Key</button>
+            <div id="status-message" class="status"></div>
+        </div>
     </div>
+
+    <script src="popup.js"></script>
 </body>
-<script src="./index.js"></script>
 </html>
