@@ -1,0 +1,197 @@
+body {
+  width: 400px;
+  min-height: 300px;
+  margin: 0;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #0F0F0F;
+}
+
+.settings-icon {
+  color: #065FD4;
+}
+
+.section {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.section h2 {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  color: #0F0F0F;
+}
+
+.description {
+  font-size: 14px;
+  color: #606060;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.section a {
+  color: #065FD4;
+  text-decoration: none;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+input[type="password"],
+input[type="text"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: #065FD4;
+}
+
+button {
+  background: #065FD4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: #0356BE;
+}
+
+.setting-item {
+  margin-bottom: 16px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #0F0F0F;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+select:focus {
+  border-color: #065FD4;
+}
+
+.shortcut-info {
+  font-size: 14px;
+  color: #606060;
+}
+
+.shortcut-info p {
+  margin: 0 0 8px 0;
+  color: #0F0F0F;
+}
+
+.shortcut-info small {
+  font-size: 12px;
+}
+
+.status-message {
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-message {
+  background: #E6F4EA;
+  color: #0F8A0F;
+}
+
+.error-message {
+  background: #FCE8E8;
+  color: #CC0000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar Styling */
+.results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.results::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.results::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 

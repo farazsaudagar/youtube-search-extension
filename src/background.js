@@ -41,4 +41,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       });
     return true;
   }
+});
+
+// Listen for keyboard shortcut
+chrome.commands.onCommand.addListener((command) => {
+    if (command === 'toggle-sidebar') {
+        // Get the active tab
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs[0] && tabs[0].url.includes('youtube.com')) {
+                // Send message to content script to toggle sidebar
+                chrome.tabs.sendMessage(tabs[0].id, { action: 'toggleSidebar' });
+            }
+        });
+    }
 }); 

@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "YouTube Video Search",
-    "version": "1.0",
-    "description": "Search through YouTube video captions with AI assistance",
+    "name": "YouTube Caption Search",
+    "version": "1.0.0",
+    "description": "Search through YouTube video captions with AI-powered insights. Features both regular text search and AI-powered semantic search.",
     "author": "Faraz Saudagar",
     "action": {
         "default_popup": "popup.html",
@@ -17,17 +17,17 @@
         "activeTab"
     ],
     "host_permissions": [
-        "https://*.youtube.com/*"
+        "https://www.youtube.com/*",
+        "https://api.deepseek.com/*"
     ],
     "background": {
-        "service_worker": "src/background.js",
-        "type": "module"
+        "service_worker": "dist/background.bundle.js"
     },
     "content_scripts": [
         {
-            "matches": ["https://*.youtube.com/*"],
+            "matches": ["https://www.youtube.com/*"],
             "js": ["dist/content.bundle.js"],
-            "css": ["styles.css"]
+            "run_at": "document_idle"
         }
     ],
     "web_accessible_resources": [
@@ -46,5 +46,14 @@
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
+    },
+    "commands": {
+        "toggle-sidebar": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "Command+Shift+F"
+            },
+            "description": "Toggle search sidebar"
+        }
     }
 }

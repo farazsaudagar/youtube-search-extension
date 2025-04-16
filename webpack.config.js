@@ -1,30 +1,40 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
   entry: {
-    sidebar: './src/sidebar.js',
-    content: './src/content.js'
+    popup: './src/popup/index.jsx',
+    content: './src/content.js',
+    background: './src/background.js'
   },
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    clean: true
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }]
+            ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  mode: 'production',
+  devtool: 'source-map'
 }; 
